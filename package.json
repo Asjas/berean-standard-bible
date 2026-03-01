@@ -15,9 +15,8 @@
     "tauri:build": "tauri build",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --cache --cache-location .cache/eslint --cache-strategy content .",
-    "prettier": "prettier \"**/*.+(ts|tsx|css|html|json|md)\"",
-    "format": "pnpm run prettier -- --write --cache --cache-location .cache/prettier",
-    "check-format": "pnpm run prettier -- --list-different --cache --cache-location .cache/prettier"
+    "format": "prettier --write --cache --cache-location .cache/prettier \"**/*.+(ts|tsx|css|html|json|md)\"",
+    "check-format": "prettier --list-different --cache --cache-location .cache/prettier \"**/*.+(ts|tsx|css|html|json|md)\""
   },
   "dependencies": {
     "@orama/orama": "3.1.18",
@@ -36,7 +35,9 @@
     "@tanstack/eslint-plugin-router": "1.161.4",
     "@tanstack/router-plugin": "1.164.0",
     "@tauri-apps/cli": "2.10.0",
+    "@total-typescript/ts-reset": "0.6.1",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
+    "@types/node": "25.3.3",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.4",
