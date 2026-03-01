@@ -183,6 +183,41 @@ style(theme): adjust paper-mode background warmth
 
 ---
 
+## Development Workflow
+
+### Frequent Validation (During Development)
+
+Run these checks **frequently** while developing — not just before commits.
+Catch issues early:
+
+```bash
+# After modifying any file, format it:
+pnpm format
+
+# After significant code changes, check types:
+pnpm typecheck
+
+# After adding new code, check for lint issues:
+pnpm lint
+
+# Periodically verify the build still works:
+pnpm build
+```
+
+### Route Creation Workflow
+
+When creating new route files in `src/routes/`:
+
+1. Create the route file (e.g., `src/routes/index.tsx`)
+2. Run `pnpm dev` to start the dev server — TanStack Router will generate the
+   route tree file (`routeTree.gen.ts`) and populate route boilerplate
+3. Stop the dev server (`Ctrl+C`)
+4. Edit the generated route file with your own component code
+5. Run `pnpm format` to format the new/modified files
+6. Run `pnpm typecheck` to verify types are correct
+
+---
+
 ## Editing Rules
 
 1. **NEVER modify USFM files** (`bsb_usfm/` or `public/bsb_usfm/`). These are
