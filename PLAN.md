@@ -88,7 +88,9 @@ src/routes/
 
 ```
 Home (/)
-├── Lists all 66 books in a grid/list
+├── Lists all 66 books grouped by testament
+│   ├── "Old Testament" heading → 39 OT books
+│   └── "New Testament" heading → 27 NT books
 ├── Global search bar (searches entire Bible)
 │
 ├── Book Page (/book/GEN)
@@ -105,6 +107,15 @@ Home (/)
     ├── Font size: slider (14px–28px)
     └── Line height: slider (1.4–2.2)
 ```
+
+### Home Page Book Listing
+
+The home page shows all 66 books organized under two headings:
+
+- **Old Testament** (39 books: Genesis → Malachi)
+- **New Testament** (27 books: Matthew → Revelation)
+
+Each book is a selectable card/link that navigates to the book reader page.
 
 ### Source Directory Structure
 
