@@ -48,7 +48,7 @@ interface VerseObjectRendererProps {
 function VerseObjectRenderer({ obj }: VerseObjectRendererProps) {
   switch (obj.type) {
     case "text":
-      return <span>{obj.text.replace(/\n$/, " ")}</span>;
+      return <span>{obj.text.replace(/\n$/, "")}</span>;
 
     case "quote":
       return (
@@ -64,11 +64,14 @@ function VerseObjectRenderer({ obj }: VerseObjectRendererProps) {
       );
 
     case "paragraph":
-      if (obj.tag === "b") {
-        return <br />;
+      // Skip blank line markers and whitespace-only paragraph markers within verses
+      if (obj.tag === "b" || obj.tag === "m" || obj.tag === "pmo") {
+        return null;
       }
       if (obj.text) {
-        return <span>{obj.text.replace(/\n$/, " ")}</span>;
+        const trimmed = obj.text.trim();
+        if (!trimmed) return null;
+        return <span>{trimmed}</span>;
       }
       return null;
 

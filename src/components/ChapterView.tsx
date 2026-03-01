@@ -8,11 +8,13 @@ interface ChapterViewProps {
 }
 
 function ChapterView({ bookId, chapterNumber, chapter }: ChapterViewProps) {
-  const verseEntries = Object.entries(chapter).sort(
-    ([a], [b]) => Number(a) - Number(b),
-  );
+  // Separate front matter from actual verses
+  const frontMatter = chapter["front"];
+  const verseEntries = Object.entries(chapter)
+    .filter(([key]) => key !== "front")
+    .sort(([a], [b]) => Number(a) - Number(b));
 
-  // Collect section headings that appear before/between verses
+  // Collect section headings from all verse objects (including front matter)
   const sections = extractSections(chapter);
 
   return (
@@ -24,6 +26,16 @@ function ChapterView({ bookId, chapterNumber, chapter }: ChapterViewProps) {
       <h2 className="mb-6 border-b border-border pb-2 text-2xl font-bold text-text-primary">
         Chapter {chapterNumber}
       </h2>
+
+      {/* Render front matter sections (headings before verse 1) */}
+      {frontMatter &&
+        sections.get("front")?.map((section, i) => (
+          <SectionHeading
+            key={`front-s-${i}`}
+            tag={section.tag}
+            content={section.content}
+          />
+        ))}
 
       {verseEntries.map(([verseNum, verse]) => {
         const sectionHeadings = sections.get(verseNum);
@@ -56,7 +68,7 @@ interface SectionInfo {
   content: string;
 }
 
-/** Extract section headings from verse objects, keyed by the verse they belong to */
+/** Extract section headings and cross-references from verse objects, keyed by the verse they belong to */
 function extractSections(chapter: ParsedChapter): Map<string, SectionInfo[]> {
   const sections = new Map<string, SectionInfo[]>();
 
@@ -68,6 +80,22 @@ function extractSections(chapter: ParsedChapter): Map<string, SectionInfo[]> {
         verseSections.push({
           tag: obj.tag,
           content: obj.content.replace(/\n$/, ""),
+        });
+      }
+    }
+
+    // Also check for untyped cross-reference entries (tag:"r" without type:"section")
+    // which usfm-js emits in front matter
+    for (const raw of verse.verseObjects as unknown[]) {
+      const entry = raw as Record<string, unknown>;
+      if (
+        entry["tag"] === "r" &&
+        !entry["type"] &&
+        typeof entry["content"] === "string"
+      ) {
+        verseSections.push({
+          tag: "r",
+          content: entry["content"].replace(/\n$/, ""),
         });
       }
     }

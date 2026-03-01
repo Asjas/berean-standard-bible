@@ -94,6 +94,9 @@ export function flattenBookVerses(loadedBook: LoadedBook): IndexedVerse[] {
 
   for (const [chapterNum, chapter] of Object.entries(loadedBook.chapters)) {
     for (const [verseNum, verse] of Object.entries(chapter as ParsedChapter)) {
+      // Skip front matter (section headings before verse 1)
+      if (verseNum === "front") continue;
+
       const text = extractVerseText(verse.verseObjects);
       if (text) {
         verses.push({
