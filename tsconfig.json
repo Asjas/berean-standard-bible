@@ -16,11 +16,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "useUnknownInCatchVariables": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "typeRoots": ["./node_modules/@types", "./types/"],
     "paths": {
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src", "vite.config.ts"]
+  "include": ["src", "vite.config.ts", "./types/"]
 }
