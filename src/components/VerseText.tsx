@@ -82,6 +82,38 @@ function VerseObjectRenderer({ obj }: VerseObjectRendererProps) {
       return <FootnoteInline content={obj.content} />;
 
     default:
+      // Handle untyped objects from usfm-js (li1, li2, it, etc.)
+      return <UntypedObjectRenderer obj={obj} />;
+  }
+}
+
+function UntypedObjectRenderer({ obj }: { obj: VerseObject }) {
+  if (!("tag" in obj)) return null;
+
+  const tag = obj.tag;
+  const text =
+    ("content" in obj ? (obj.content as string) : undefined) ??
+    ("text" in obj ? (obj.text as string) : undefined);
+
+  switch (tag) {
+    case "li1": {
+      const trimmed = text?.replace(/\n$/, "").trim();
+      if (!trimmed) return null;
+      return <span className="ml-4 block leading-relaxed">{trimmed}</span>;
+    }
+    case "li2": {
+      const trimmed = text?.replace(/\n$/, "").trim();
+      if (!trimmed) return null;
+      return <span className="ml-8 block leading-relaxed">{trimmed}</span>;
+    }
+    case "it": {
+      const trimmed = text?.trim();
+      if (!trimmed) return null;
+      return <em>{trimmed}</em>;
+    }
+    case "r":
+      return null; // Cross-references rendered at chapter level
+    default:
       return null;
   }
 }

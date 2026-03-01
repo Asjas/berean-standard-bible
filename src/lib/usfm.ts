@@ -82,6 +82,16 @@ export function extractVerseText(verseObjects: VerseObject[]): string {
         if (obj.text) parts.push(obj.text.trim());
         break;
       // footnotes and sections are not included in plain text
+      case undefined:
+        // Untyped objects from usfm-js (li1, li2, d, it)
+        if ("content" in obj && obj.content) {
+          const trimmed = obj.content.trim();
+          if (trimmed) parts.push(trimmed);
+        } else if ("text" in obj && obj.text) {
+          const trimmed = obj.text.trim();
+          if (trimmed) parts.push(trimmed);
+        }
+        break;
     }
   }
 

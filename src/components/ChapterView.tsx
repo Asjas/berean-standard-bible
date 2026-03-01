@@ -68,9 +68,10 @@ interface SectionInfo {
   content: string;
 }
 
-/** Extract section headings and cross-references from verse objects, keyed by the verse they belong to */
+/** Extract section headings, cross-references, and descriptors from verse objects */
 function extractSections(chapter: ParsedChapter): Map<string, SectionInfo[]> {
   const sections = new Map<string, SectionInfo[]>();
+  const headingTags = new Set(["s1", "s2", "ms", "mr", "r", "d"]);
 
   for (const [verseNum, verse] of Object.entries(chapter)) {
     const verseSections: SectionInfo[] = [];
@@ -81,22 +82,14 @@ function extractSections(chapter: ParsedChapter): Map<string, SectionInfo[]> {
           tag: obj.tag,
           content: obj.content.replace(/\n$/, ""),
         });
-      }
-    }
-
-    // Also check for untyped cross-reference entries (tag:"r" without type:"section")
-    // which usfm-js emits in front matter
-    for (const raw of verse.verseObjects as unknown[]) {
-      const entry = raw as Record<string, unknown>;
-      if (
-        entry["tag"] === "r" &&
-        !entry["type"] &&
-        typeof entry["content"] === "string"
-      ) {
-        verseSections.push({
-          tag: "r",
-          content: entry["content"].replace(/\n$/, ""),
-        });
+      } else if (!obj.type && "tag" in obj && headingTags.has(obj.tag)) {
+        const text = obj.content ?? obj.text;
+        if (text) {
+          verseSections.push({
+            tag: obj.tag,
+            content: text.replace(/\n$/, "").trim(),
+          });
+        }
       }
     }
 
@@ -140,6 +133,10 @@ function SectionHeading({ tag, content }: SectionHeadingProps) {
         </h5>
       );
     case "r":
+      return (
+        <p className="mb-4 text-sm text-text-secondary italic">{content}</p>
+      );
+    case "d":
       return (
         <p className="mb-4 text-sm text-text-secondary italic">{content}</p>
       );

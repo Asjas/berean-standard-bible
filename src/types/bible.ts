@@ -8,7 +8,8 @@ export type VerseObject =
   | VerseParagraphObject
   | VerseSectionObject
   | VerseFootnoteObject
-  | VerseQuoteObject;
+  | VerseQuoteObject
+  | VerseUntypedObject;
 
 export interface VerseTextObject {
   type: "text";
@@ -40,6 +41,19 @@ export interface VerseQuoteObject {
   type: "quote";
   tag: "q1" | "q2";
   text?: string;
+  nextChar?: string;
+}
+
+/**
+ * Catch-all for usfm-js objects emitted without a `type` field.
+ * Known tags: li1, li2, d, r, ms, mr, it, pc
+ */
+export interface VerseUntypedObject {
+  type?: undefined;
+  tag: string;
+  content?: string;
+  text?: string;
+  endTag?: string;
   nextChar?: string;
 }
 
