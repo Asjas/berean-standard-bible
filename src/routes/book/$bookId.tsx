@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import ChapterView from "~/components/ChapterView";
 import { getBookById } from "~/lib/bible-data";
@@ -14,6 +14,27 @@ function BookPage() {
   const bookMeta = getBookById(bookId);
   const [loadedBook, setLoadedBook] = useState<LoadedBook | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const location = useLocation();
+
+  // Scroll to verse hash after content loads
+  useEffect(() => {
+    if (!loadedBook || !location.hash) return;
+    const id = location.hash.replace(/^#/, "");
+    // Delay to let the DOM render
+    const timer = setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.classList.add("bg-accent/10");
+        setTimeout(() => {
+          el.classList.remove("bg-accent/10");
+        }, 2000);
+      }
+    }, 100);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [loadedBook, location.hash]);
 
   useEffect(() => {
     let cancelled = false;
