@@ -1,6 +1,6 @@
 declare module "usfm-js" {
   interface UsfmJsonOutput {
-    headers: Array<{ tag: string; content: string }>;
+    headers: { tag: string; content: string }[];
     chapters: Record<string, Record<string, { verseObjects: unknown[] }>>;
   }
 
