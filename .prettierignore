@@ -1,1 +1,8 @@
 .github/
+dist/
+node_modules/
+.cache/
+public/bsb_usfm/
+bsb_usfm/
+src/routeTree.gen.ts
+pnpm-lock.yaml
