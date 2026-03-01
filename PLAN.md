@@ -1,7 +1,6 @@
 # Berean Standard Bible App — Project Plan
 
-> **Status**: In Progress
-> **Last Updated**: 2026-03-01
+> **Status**: In Progress **Last Updated**: 2026-03-01
 
 ---
 
@@ -20,19 +19,19 @@ purposes.
 
 ## Technology Stack
 
-| Category          | Choice                                       | Version    | Notes                                                    |
-| ----------------- | -------------------------------------------- | ---------- | -------------------------------------------------------- |
-| Desktop Framework | Tauri                                        | 2.x        | Rust-based, lightweight native wrapper                   |
-| Build Tool        | Vite                                         | 7.x        | Fast HMR, handles static assets                          |
-| UI Framework      | React                                        | 19.x       | Functional components, hooks                             |
-| Language          | TypeScript                                   | 5.x        | Strict mode                                              |
-| Routing           | @tanstack/react-router                       | 1.x        | File-based routing                                       |
-| Styling           | Tailwind CSS                                 | 4.x        | Mobile-first, dark/light themes                          |
-| USFM Parsing      | usfm-js                                      | 3.x        | USFM ↔ JSON conversion                                  |
-| Search            | @orama/orama                                 | 3.x        | Client-side full-text search, TypeScript-first, <2kb     |
-| Font              | Literata (Google Fonts)                      | —          | Designed for long-form reading (Google Play Books font)  |
-| Package Manager   | pnpm                                         | 10.x       | Fast, disk-efficient                                     |
-| Code Quality      | Prettier + ESLint                            | —          | Auto-formatting, linting                                 |
+| Category          | Choice                  | Version | Notes                                                   |
+| ----------------- | ----------------------- | ------- | ------------------------------------------------------- |
+| Desktop Framework | Tauri                   | 2.x     | Rust-based, lightweight native wrapper                  |
+| Build Tool        | Vite                    | 7.x     | Fast HMR, handles static assets                         |
+| UI Framework      | React                   | 19.x    | Functional components, hooks                            |
+| Language          | TypeScript              | 5.x     | Strict mode                                             |
+| Routing           | @tanstack/react-router  | 1.x     | File-based routing                                      |
+| Styling           | Tailwind CSS            | 4.x     | Mobile-first, dark/light themes                         |
+| USFM Parsing      | usfm-js                 | 3.x     | USFM ↔ JSON conversion                                  |
+| Search            | @orama/orama            | 3.x     | Client-side full-text search, TypeScript-first, <2kb    |
+| Font              | Literata (Google Fonts) | —       | Designed for long-form reading (Google Play Books font) |
+| Package Manager   | pnpm                    | 10.x    | Fast, disk-efficient                                    |
+| Code Quality      | Prettier + ESLint       | —       | Auto-formatting, linting                                |
 
 ---
 
@@ -48,26 +47,26 @@ purposes.
 
 ### USFM Markers Used
 
-| Marker | Meaning                  | Example                         |
-| ------ | ------------------------ | ------------------------------- |
-| `\id`  | Book identifier          | `\id GEN - Berean Standard Bible` |
-| `\h`   | Header (book name)       | `\h Genesis`                    |
-| `\toc1` | Table of contents (long) | `\toc1 Genesis`                |
-| `\toc2` | Table of contents (short)| `\toc2 Genesis`                |
-| `\mt1` | Main title               | `\mt1 Genesis`                  |
-| `\c`   | Chapter number           | `\c 1`                          |
-| `\v`   | Verse number             | `\v 1 In the beginning...`      |
-| `\s1`  | Section heading          | `\s1 The Creation`              |
-| `\s2`  | Sub-section heading      | `\s2 The First Day`             |
-| `\r`   | Cross-reference heading  | `\r (John 1:1–5)`              |
-| `\q1`  | Poetry indent level 1    | Poetry formatting               |
-| `\q2`  | Poetry indent level 2    | Poetry formatting               |
-| `\f`   | Footnote                 | `\f + \fr 1:3 \ft Cited in...`  |
-| `\b`   | Blank line               | Paragraph break                 |
-| `\m`   | Continuation paragraph   | No first-line indent            |
-| `\pmo` | Opening embedded para    | Embedded text                   |
-| `\ms`  | Major section heading    | `\ms BOOK I`                    |
-| `\mr`  | Major section range      | `\mr Psalms 1—41`              |
+| Marker  | Meaning                   | Example                           |
+| ------- | ------------------------- | --------------------------------- |
+| `\id`   | Book identifier           | `\id GEN - Berean Standard Bible` |
+| `\h`    | Header (book name)        | `\h Genesis`                      |
+| `\toc1` | Table of contents (long)  | `\toc1 Genesis`                   |
+| `\toc2` | Table of contents (short) | `\toc2 Genesis`                   |
+| `\mt1`  | Main title                | `\mt1 Genesis`                    |
+| `\c`    | Chapter number            | `\c 1`                            |
+| `\v`    | Verse number              | `\v 1 In the beginning...`        |
+| `\s1`   | Section heading           | `\s1 The Creation`                |
+| `\s2`   | Sub-section heading       | `\s2 The First Day`               |
+| `\r`    | Cross-reference heading   | `\r (John 1:1–5)`                 |
+| `\q1`   | Poetry indent level 1     | Poetry formatting                 |
+| `\q2`   | Poetry indent level 2     | Poetry formatting                 |
+| `\f`    | Footnote                  | `\f + \fr 1:3 \ft Cited in...`    |
+| `\b`    | Blank line                | Paragraph break                   |
+| `\m`    | Continuation paragraph    | No first-line indent              |
+| `\pmo`  | Opening embedded para     | Embedded text                     |
+| `\ms`   | Major section heading     | `\ms BOOK I`                      |
+| `\mr`   | Major section range       | `\mr Psalms 1—41`                 |
 
 ---
 
@@ -173,23 +172,23 @@ User selects book → Load parsed chapters for that book
 ### Light Mode (Paper/Kindle)
 
 ```css
---bg-primary: #faf6f1;        /* Warm cream/paper */
---bg-secondary: #f0ebe4;      /* Slightly darker cream */
---text-primary: #2c2416;      /* Dark brown-black */
---text-secondary: #6b5d4d;    /* Medium brown */
---accent: #8b4513;            /* Saddle brown */
---border: #ddd5c9;            /* Warm gray */
+--bg-primary: #faf6f1; /* Warm cream/paper */
+--bg-secondary: #f0ebe4; /* Slightly darker cream */
+--text-primary: #2c2416; /* Dark brown-black */
+--text-secondary: #6b5d4d; /* Medium brown */
+--accent: #8b4513; /* Saddle brown */
+--border: #ddd5c9; /* Warm gray */
 ```
 
 ### Dark Mode
 
 ```css
---bg-primary: #1a1a1a;        /* Near-black */
---bg-secondary: #252525;      /* Dark gray */
---text-primary: #e8e0d4;      /* Warm off-white */
---text-secondary: #a89b8c;    /* Muted warm gray */
---accent: #d4a574;            /* Warm gold */
---border: #3a3a3a;            /* Dark border */
+--bg-primary: #1a1a1a; /* Near-black */
+--bg-secondary: #252525; /* Dark gray */
+--text-primary: #e8e0d4; /* Warm off-white */
+--text-secondary: #a89b8c; /* Muted warm gray */
+--accent: #d4a574; /* Warm gold */
+--border: #3a3a3a; /* Dark border */
 ```
 
 ---
@@ -200,7 +199,7 @@ User selects book → Load parsed chapters for that book
 interface AppSettings {
   theme: "light" | "dark" | "system";
   fontFamily: "Literata" | "Source Serif 4" | "Lora" | "system";
-  fontSize: number;   // 14–28, default 18
+  fontSize: number; // 14–28, default 18
   lineHeight: number; // 1.4–2.2, default 1.8
 }
 ```
@@ -258,16 +257,16 @@ interface AppSettings {
 
 ## Design Decisions Log
 
-| Decision                    | Choice                  | Rationale                                                                            |
-| --------------------------- | ----------------------- | ------------------------------------------------------------------------------------ |
-| USFM Parser                | usfm-js                | Most mature JS USFM parser, handles all BSB markers                                 |
-| Search Engine               | @orama/orama            | Client-side, TypeScript-first, zero deps, <2kb, free                                 |
-| Reading Font                | Literata                | Designed for long-form reading (Google Play Books font)                               |
-| Styling                     | Tailwind CSS 4          | Mobile-first, utility classes, theme variables                                       |
-| Routing                     | TanStack Router         | File-based routing, TypeScript-first, great DX                                       |
-| File Loading                | Static assets (public/) | Works in both Tauri and web mode, simple fetch API                                   |
-| State Persistence           | localStorage            | Settings only, no server needed                                                      |
-| Light Theme                 | Paper/beige             | Kindle-like reading experience, reduces eye strain                                   |
+| Decision          | Choice                  | Rationale                                               |
+| ----------------- | ----------------------- | ------------------------------------------------------- |
+| USFM Parser       | usfm-js                 | Most mature JS USFM parser, handles all BSB markers     |
+| Search Engine     | @orama/orama            | Client-side, TypeScript-first, zero deps, <2kb, free    |
+| Reading Font      | Literata                | Designed for long-form reading (Google Play Books font) |
+| Styling           | Tailwind CSS 4          | Mobile-first, utility classes, theme variables          |
+| Routing           | TanStack Router         | File-based routing, TypeScript-first, great DX          |
+| File Loading      | Static assets (public/) | Works in both Tauri and web mode, simple fetch API      |
+| State Persistence | localStorage            | Settings only, no server needed                         |
+| Light Theme       | Paper/beige             | Kindle-like reading experience, reduces eye strain      |
 
 ---
 

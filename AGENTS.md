@@ -44,8 +44,8 @@ src/
   startup. No server-side search.
 - **File-based routing**: TanStack Router with `__root.tsx`, `index.tsx`,
   `$param.tsx` conventions.
-- **Functional components**: ES5 function declarations
-  (`function MyComponent()` not arrows).
+- **Functional components**: ES5 function declarations (`function MyComponent()`
+  not arrows).
 - **Mobile-first**: All CSS is written mobile-first with Tailwind breakpoints
   for larger screens.
 - **Theming**: Light (paper/beige) and dark modes via CSS custom properties and
@@ -190,8 +190,8 @@ style(theme): adjust paper-mode background warmth
 2. **ALWAYS run validation** (`pnpm format && pnpm lint && pnpm typecheck`)
    before committing.
 3. **ALWAYS use pnpm**. Never npm or yarn.
-4. When creating new routes in `src/routes/`, run the dev server once (`pnpm
-   dev`) to regenerate route types.
+4. When creating new routes in `src/routes/`, run the dev server once
+   (`pnpm dev`) to regenerate route types.
 5. **Mobile-first** — always write CSS starting from mobile viewport, then add
    breakpoints.
 6. **Accessibility** — use semantic HTML, proper heading hierarchy, aria labels
@@ -243,11 +243,11 @@ decisions log. Update this file as progress is made.
 For context-specific guidance, see the instruction files in
 `.github/instructions/`:
 
-| File                                     | Scope                   | Description                           |
-| ---------------------------------------- | ----------------------- | ------------------------------------- |
-| `setup-and-validation.instructions.md`   | All files               | Setup and validation steps            |
-| `typescript-react.instructions.md`       | `**/*.ts, **/*.tsx`     | React + TanStack + Tailwind patterns  |
-| `commit-message.instructions.md`         | All files               | Conventional Commits format           |
-| `a11y.instructions.md`                   | All files               | Accessibility (WCAG 2.2 AA)           |
-| `security.instructions.md`              | All files               | Security best practices               |
-| `performance.instructions.md`           | All files               | Performance optimization guidelines   |
+| File                                   | Scope               | Description                          |
+| -------------------------------------- | ------------------- | ------------------------------------ |
+| `setup-and-validation.instructions.md` | All files           | Setup and validation steps           |
+| `typescript-react.instructions.md`     | `**/*.ts, **/*.tsx` | React + TanStack + Tailwind patterns |
+| `commit-message.instructions.md`       | All files           | Conventional Commits format          |
+| `a11y.instructions.md`                 | All files           | Accessibility (WCAG 2.2 AA)          |
+| `security.instructions.md`             | All files           | Security best practices              |
+| `performance.instructions.md`          | All files           | Performance optimization guidelines  |
