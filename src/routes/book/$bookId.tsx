@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import ChapterView from "~/components/ChapterView";
-import Navigation from "~/components/Navigation";
 import { getBookById } from "~/lib/bible-data";
 import { fetchBook } from "~/lib/usfm";
 import type { LoadedBook } from "~/types/bible";
@@ -38,47 +37,32 @@ function BookPage() {
 
   if (!bookMeta) {
     return (
-      <div>
-        <Navigation showBack />
-        <p className="mt-8 text-center text-text-secondary">
-          Book not found: {bookId}
-        </p>
-      </div>
+      <p className="mt-8 text-center text-text-secondary">
+        Book not found: {bookId}
+      </p>
     );
   }
 
   if (error) {
     return (
-      <div>
-        <Navigation
-          title={bookMeta.name}
-          showBack
-        />
-        <div
-          className="mt-8 rounded-lg border border-red-300 bg-red-50 p-4 text-red-800 dark:border-red-800 dark:bg-red-950 dark:text-red-200"
-          role="alert"
-        >
-          <p>{error}</p>
-        </div>
+      <div
+        className="mt-8 rounded-lg border border-red-300 bg-red-50 p-4 text-red-800 dark:border-red-800 dark:bg-red-950 dark:text-red-200"
+        role="alert"
+      >
+        <p>{error}</p>
       </div>
     );
   }
 
   if (!loadedBook) {
     return (
-      <div>
-        <Navigation
-          title={bookMeta.name}
-          showBack
-        />
-        <div
-          className="flex items-center justify-center py-20"
-          role="status"
-          aria-label={`Loading ${bookMeta.name}`}
-        >
-          <div className="mr-3 h-6 w-6 animate-spin rounded-full border-4 border-border border-t-accent" />
-          <p className="text-text-secondary">Loading {bookMeta.name}...</p>
-        </div>
+      <div
+        className="flex items-center justify-center py-20"
+        role="status"
+        aria-label={`Loading ${bookMeta.name}`}
+      >
+        <div className="mr-3 h-6 w-6 animate-spin rounded-full border-4 border-border border-t-accent" />
+        <p className="text-text-secondary">Loading {bookMeta.name}...</p>
       </div>
     );
   }
@@ -89,11 +73,7 @@ function BookPage() {
 
   return (
     <article>
-      <Navigation
-        title={bookMeta.name}
-        showBack
-      />
-      <h1 className="mt-6 mb-8 text-3xl font-bold text-text-primary">
+      <h1 className="mb-8 text-3xl font-bold text-text-primary">
         {bookMeta.name}
       </h1>
 
