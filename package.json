@@ -30,7 +30,7 @@
   "devDependencies": {
     "@eslint/compat": "2.0.3",
     "@eslint/eslintrc": "3.3.5",
-    "@eslint/js": "9.39.2",
+    "@eslint/js": "9.39.4",
     "@tailwindcss/vite": "4.2.1",
     "@tanstack/eslint-plugin-router": "1.161.4",
     "@tanstack/router-plugin": "1.164.0",
@@ -42,7 +42,7 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.4",
     "@xeonlink/prettier-plugin-organize-attributes": "1.1.0",
-    "eslint": "9.39.2",
+    "eslint": "9.39.4",
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-es-x": "9.3.0",
     "eslint-plugin-import": "2.32.0",
