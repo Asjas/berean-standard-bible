@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@orama/orama": "3.1.18",
-    "@tanstack/react-router": "1.168.22",
+    "@tanstack/react-router": "1.168.23",
     "browserslist": "4.28.2",
     "react": "19.2.5",
     "react-dom": "19.2.5",
