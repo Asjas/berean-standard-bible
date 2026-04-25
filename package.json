@@ -33,7 +33,7 @@
     "@eslint/js": "10.0.1",
     "@tailwindcss/vite": "4.2.4",
     "@tanstack/eslint-plugin-router": "1.161.6",
-    "@tanstack/router-plugin": "1.167.26",
+    "@tanstack/router-plugin": "1.167.27",
     "@tauri-apps/cli": "2.10.1",
     "@total-typescript/ts-reset": "0.6.1",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
