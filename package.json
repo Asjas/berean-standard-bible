@@ -6,7 +6,7 @@
   "description": "Berean Standard Bible reading app built with Tauri, React, and TypeScript",
   "author": "A-J Roos <asjasroos@proton.me>",
   "license": "MIT",
-  "packageManager": "pnpm@10.33.2",
+  "packageManager": "pnpm@10.33.3",
   "scripts": {
     "dev": "vite --port 4173",
     "build": "vite build && tsc --noEmit",
