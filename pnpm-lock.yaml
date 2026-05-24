@@ -27,8 +27,8 @@ importers:
         specifier: 3.6.0
         version: 3.6.0
       usfm-js:
-        specifier: 3.4.3
-        version: 3.4.3
+        specifier: 3.5.0
+        version: 3.5.0
     devDependencies:
       '@eslint/compat':
         specifier: 2.1.0
@@ -2232,8 +2232,8 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  usfm-js@3.4.3:
-    resolution: {integrity: sha512-c5d2dzmSnEfFSPfMXnnycIPwdw8ryBsb2r2CUEwiXpsUMm+gDmhFz5GGOufYP5rGGVwAssHdSM8oOkcaHz+Hwg==}
+  usfm-js@3.5.0:
+    resolution: {integrity: sha512-gfSaqcxnWX0ZOInwZcyXUbn0qkVopQd3JWsZgEEfVjntb2yN8ojy6tyCqg+6AIv6MB6LZKwvuAT7nooexeUjDw==}
 
   vite@8.0.14:
     resolution: {integrity: sha512-s4BJJ+5y1pYL6Otw51FHhVJQhPnuRinKig64g/1+EUNaJsd3gCKdD31IPFvswUgW9/60QT9oFHbZHbQK5imcxw==}
@@ -4580,7 +4580,7 @@ snapshots:
     dependencies:
       react: 19.2.6
 
-  usfm-js@3.4.3:
+  usfm-js@3.5.0:
     dependencies:
       lodash.clonedeep: 4.5.0
 
