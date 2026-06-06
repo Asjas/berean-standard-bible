@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@orama/orama": "3.1.18",
-    "@tanstack/react-router": "1.170.11",
+    "@tanstack/react-router": "1.170.15",
     "browserslist": "4.28.2",
     "react": "19.2.7",
     "react-dom": "19.2.7",
@@ -33,7 +33,7 @@
     "@eslint/js": "10.0.1",
     "@tailwindcss/vite": "4.3.0",
     "@tanstack/eslint-plugin-router": "1.162.0",
-    "@tanstack/router-plugin": "1.168.14",
+    "@tanstack/router-plugin": "1.168.18",
     "@tauri-apps/cli": "2.11.2",
     "@total-typescript/ts-reset": "0.6.1",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
