@@ -21,7 +21,7 @@
   "dependencies": {
     "@orama/orama": "3.1.18",
     "@tanstack/react-router": "1.170.16",
-    "browserslist": "4.28.2",
+    "browserslist": "4.28.4",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "tailwind-merge": "3.6.0",
