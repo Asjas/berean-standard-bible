@@ -28,7 +28,7 @@
     "usfm-js": "3.5.0"
   },
   "devDependencies": {
-    "@eslint/compat": "2.1.0",
+    "@eslint/compat": "2.1.1",
     "@eslint/eslintrc": "3.3.7",
     "@eslint/js": "10.0.1",
     "@tailwindcss/vite": "4.3.3",
