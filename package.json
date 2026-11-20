@@ -24,7 +24,7 @@
     "browserslist": "4.29.6",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "tailwind-merge": "3.7.0",
+    "tailwind-merge": "3.7.1",
     "usfm-js": "3.5.0"
   },
   "devDependencies": {
